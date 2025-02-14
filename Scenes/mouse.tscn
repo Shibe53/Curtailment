@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://c0e54g3dw4d25"]
+[gd_scene load_steps=4 format=3 uid="uid://c0e54g3dw4d25"]
 
-[node name="Mouse" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c0qln2xgggp1n" path="res://rat_temp.png" id="1_17ubi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyt64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bi41t"]
+radius = 6.0
+height = 20.0
+
+[node name="Mouse" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_17ubi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uyt64")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_bi41t")
