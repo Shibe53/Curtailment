@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbam8aqq8qgma"]
+[gd_scene load_steps=9 format=3 uid="uid://cbam8aqq8qgma"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_cfjqg"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
 [ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
-[ext_resource type="Material" uid="uid://l0mruno0riot" path="res://Assets/window_shader.tres" id="5_c1c0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xgc6"]
 size = Vector2(1196, 20)
@@ -27,13 +26,10 @@ offset_bottom = 836.0
 texture = ExtResource("2_eoyj7")
 
 [node name="Mouse" parent="." instance=ExtResource("3_rr2h0")]
-position = Vector2(60, 337)
+position = Vector2(59, 326)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
-
-[node name="Area2D" parent="WindowScreen" index="2"]
-shader_material = ExtResource("5_c1c0c")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
