@@ -11,7 +11,7 @@ func _ready() -> void:
 			stats.screens_needed = 1
 			stats.level = 0
 		1:
-			stats.screens_needed = 3
+			stats.screens_needed = 1
 			stats.level = 1
 		2: 
 			stats.screens_needed = 8
