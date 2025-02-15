@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbam8aqq8qgma"]
+[gd_scene load_steps=12 format=3 uid="uid://cbam8aqq8qgma"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_cfjqg"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
 [ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
+[ext_resource type="Script" path="res://Scenes/screen.gd" id="5_3bm7r"]
 [ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="5_wb4kf"]
 [ext_resource type="Material" uid="uid://l0mruno0riot" path="res://Assets/window_shader.tres" id="6_onq3a"]
 
@@ -35,9 +36,10 @@ position = Vector2(150, 151)
 
 [node name="Area2D" parent="WindowScreen" index="4"]
 collision_layer = 2
+script = ExtResource("5_3bm7r")
+shader_material = ExtResource("6_onq3a")
 
 [node name="kill" parent="WindowScreen" instance=ExtResource("5_wb4kf")]
-shader_material = ExtResource("6_onq3a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
