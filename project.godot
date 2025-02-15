@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Curtailment"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerStats="*res://Scenes/player_stats.tscn"
 
 [display]
 

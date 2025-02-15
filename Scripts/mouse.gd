@@ -4,6 +4,7 @@ var velocity: Vector2
 var timer := Timer.new()
 const FRICTION = 0.98
 
+var stats = PlayerStats
 @onready var sprite_2d = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +13,8 @@ func _ready():
 	add_child(timer)
 	timer.wait_time = 5.0
 	timer.one_shot = true;
-	timer.connect("timeout", _on_timer_timeout)
+	timer.timeout.connect(_on_timer_timeout)
+	stats.all_screens_charged.connect(queue_free)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
