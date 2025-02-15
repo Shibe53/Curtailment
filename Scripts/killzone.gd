@@ -30,5 +30,5 @@ func _process(delta):
 
 func kill_player():
 	print('IM KILLING YOU >:((')
-	if has_overlapping_areas():
-		print('L')
+	for area in get_overlapping_areas():
+		area._on_timer_timeout()

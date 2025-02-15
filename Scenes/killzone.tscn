@@ -59,6 +59,7 @@ _data = {
 }
 
 [node name="kill" type="Area2D"]
+z_index = 6
 script = ExtResource("1_16vtt")
 timer = 2.0
 
