@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_cfjqg"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
-[ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
+[ext_resource type="Texture2D" uid="uid://c6pyoepw3g3w0" path="res://Assets/WXP_Screen.png" id="2_cra5c"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
 [ext_resource type="Script" path="res://Scenes/screen.gd" id="5_3bm7r"]
 [ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="5_wb4kf"]
@@ -54,17 +54,23 @@ size = Vector2(20, 676)
 script = ExtResource("1_cfjqg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1714.0
-offset_bottom = 836.0
-texture = ExtResource("2_eoyj7")
+offset_left = -5.0
+offset_top = -21.0
+offset_right = 1163.0
+offset_bottom = 1003.0
+scale = Vector2(1, 0.7)
+texture = ExtResource("2_cra5c")
 
 [node name="Mouse" parent="." instance=ExtResource("3_rr2h0")]
+z_index = 23
+y_sort_enabled = false
 position = Vector2(6, 7)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
+y_sort_enabled = true
 position = Vector2(150, 151)
 
-[node name="Area2D" parent="WindowScreen" index="4"]
+[node name="Area2D" parent="WindowScreen" index="5"]
 collision_layer = 2
 script = ExtResource("5_3bm7r")
 shader_material = SubResource("ShaderMaterial_0ph7l")

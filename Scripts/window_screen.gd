@@ -38,11 +38,6 @@ func _physics_process(delta: float) -> void:
 		
 		COMPLETE:
 			animation_player.play("meesa_disappearin")
-			var increment = true
-			if increment:
-				increment = false
-				stats.screens += 1
-				print(stats.screens)
 
 func move_state(delta):
 	if get_last_slide_collision():
@@ -72,4 +67,5 @@ func charging():
 		charge += 0.05
 		progress_bar.value = charge
 	else:
-		state = COMPLETE 
+		state = COMPLETE
+		stats.screens += 1
