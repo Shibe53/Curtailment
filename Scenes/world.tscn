@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbam8aqq8qgma"]
+[gd_scene load_steps=13 format=3 uid="uid://cbam8aqq8qgma"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_cfjqg"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
@@ -6,7 +6,37 @@
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
 [ext_resource type="Script" path="res://Scenes/screen.gd" id="5_3bm7r"]
 [ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="5_wb4kf"]
-[ext_resource type="Material" uid="uid://l0mruno0riot" path="res://Assets/window_shader.tres" id="6_onq3a"]
+
+[sub_resource type="Shader" id="Shader_5p1xp"]
+code = "shader_type canvas_item;
+
+uniform vec2 mask_position;  // Center of the mask in UV space
+uniform vec2 mask_size;      // Width and height of the mask in UV space
+uniform float edge_smoothness = 1.0;  // Smoothing effect
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV); // Get sprite texture
+
+    // Compute half extents
+    vec2 half_size = mask_size * 0.5;
+
+    // Compute distance from the mask center
+    vec2 dist = abs(UV - mask_position) - half_size;
+
+    // If inside the box, visibility is 1. Otherwise, smoothly fade out.
+    float visibility = 1.0 - smoothstep(0.0, edge_smoothness, max(dist.x, dist.y));
+
+    // Apply mask effect
+    COLOR = tex_color;
+    COLOR.a *= visibility;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ph7l"]
+shader = SubResource("Shader_5p1xp")
+shader_parameter/mask_position = null
+shader_parameter/mask_size = null
+shader_parameter/edge_smoothness = 0.05
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xgc6"]
 size = Vector2(1196, 20)
@@ -29,7 +59,7 @@ offset_bottom = 836.0
 texture = ExtResource("2_eoyj7")
 
 [node name="Mouse" parent="." instance=ExtResource("3_rr2h0")]
-position = Vector2(60, 337)
+position = Vector2(6, 7)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
@@ -37,7 +67,7 @@ position = Vector2(150, 151)
 [node name="Area2D" parent="WindowScreen" index="4"]
 collision_layer = 2
 script = ExtResource("5_3bm7r")
-shader_material = ExtResource("6_onq3a")
+shader_material = SubResource("ShaderMaterial_0ph7l")
 
 [node name="kill" parent="WindowScreen" instance=ExtResource("5_wb4kf")]
 

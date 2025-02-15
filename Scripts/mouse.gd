@@ -3,6 +3,7 @@ extends Area2D
 var velocity: Vector2
 var timer := Timer.new()
 const FRICTION = 0.98
+var fade_duration = 0.05
 
 var stats = PlayerStats
 @onready var sprite_2d = $Sprite2D
@@ -14,7 +15,6 @@ func _ready():
 	timer.wait_time = 5.0
 	timer.one_shot = true;
 	timer.timeout.connect(_on_timer_timeout)
-	stats.all_screens_charged.connect(queue_free)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,6 +34,11 @@ func _process(delta):
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	timer.start()
+	fade_out()
+
+func fade_out():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, fade_duration)  # Fade out
 
 func _on_timer_timeout() -> void:
 	queue_free()
@@ -42,3 +47,8 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	timer.stop()
+	fade_in()
+	
+func fade_in():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, fade_duration)  # Fade in

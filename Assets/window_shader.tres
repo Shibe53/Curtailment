@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://l0mruno0riot"]
-
-[ext_resource type="Shader" path="res://Scripts/window_shader.gdshader" id="1_u3jjp"]
-
-[resource]
-shader = ExtResource("1_u3jjp")
-shader_parameter/mask_position = null
-shader_parameter/mask_size = null
-shader_parameter/edge_smoothness = 0.05

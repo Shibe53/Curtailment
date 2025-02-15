@@ -75,7 +75,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gk8b"]
-size = Vector2(246, 228)
+size = Vector2(214, 201)
 
 [node name="WindowScreen" type="CharacterBody2D"]
 collision_layer = 2
@@ -103,5 +103,5 @@ offset_bottom = -79.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 8)
+position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_0gk8b")
