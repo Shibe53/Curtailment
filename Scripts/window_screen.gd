@@ -12,7 +12,7 @@ enum {
 @export var ROTATION = 0
 @export var STRETCH_Y = 0
 @export var STRETCH_X = 0
-@export var JIGGLE = 0
+#@export var JIGGLE = 0
 # curved movement
 # gravity
 
@@ -58,8 +58,9 @@ func move_state(delta):
 	scale.y = clamp(scale.y + STRETCH_Y*delta, 0.5, 2)
 	velocity = impulse
 	move_and_slide()
-
-# (player area should send out a signal to all windows its a part of to start charging )
-func _on_charge_signal():
-	pass 
 	
+func charging():
+	if charge < 100:
+		charge += 0.05
+	else:
+		state = COMPLETE 

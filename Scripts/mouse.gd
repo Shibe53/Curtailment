@@ -15,6 +15,9 @@ func _process(delta):
 	velocity = (velocity + get_local_mouse_position()*delta*4)*FRICTION
 	
 	sprite_2d.rotation = velocity.angle()
+	
+	for area in get_overlapping_bodies():
+		area.charging()
 	#velocity = velocity*(1-delta) + get_local_mouse_position()*delta*3
 	
 	#var p2 = get_local_mouse_position()/2 + velocity.project(get_local_mouse_position().orthogonal())
