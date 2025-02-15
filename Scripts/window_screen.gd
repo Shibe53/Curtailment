@@ -11,8 +11,8 @@ enum {
 
 @export_group("Starting values")
 @export_range(0,100) var charge = 0
-@export_range(50,200) var SPEED_X = 100
-@export_range(50,200) var SPEED_Y = 100
+@export_range(0,200) var SPEED_X = 100
+@export_range(0,200) var SPEED_Y = 100
 @export_range(-1,1) var ROTATION: float = 0
 @export_range(-1,1) var STRETCH_Y:float = 0
 @export_range(-1,1) var STRETCH_X:float = 0
@@ -20,10 +20,10 @@ enum {
 
 @export_group("Changing values")
 @export var CHARGE_RATE = 0.05
-@export_range(50,200) var SPEED_X_LBOUND = 100
-@export_range(50,200) var SPEED_X_UBOUND = 100
-@export_range(50,200) var SPEED_Y_LBOUND = 100
-@export_range(50,200) var SPEED_Y_UBOUND = 100
+@export_range(0,200) var SPEED_X_LBOUND = 100
+@export_range(0,200) var SPEED_X_UBOUND = 100
+@export_range(0,200) var SPEED_Y_LBOUND = 100
+@export_range(0,200) var SPEED_Y_UBOUND = 100
 @export_range(-1,1) var ROTATION_LEFTBOUND: float = 0
 @export_range(-1,1) var ROTATION_RIGHTBOUND: float = 0
 @export_range(-1,1) var STRETCH_X_LEFTBOUND:float = 0
