@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0e54g3dw4d25"]
+[gd_scene load_steps=6 format=3 uid="uid://c0e54g3dw4d25"]
 
 [ext_resource type="Texture2D" uid="uid://c0qln2xgggp1n" path="res://Assets/rat_temp.png" id="1_17ubi"]
 [ext_resource type="Script" path="res://Scripts/mouse.gd" id="1_j2kns"]
+[ext_resource type="Material" uid="uid://l0mruno0riot" path="res://Assets/window_shader.tres" id="2_ks6tm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uyt64"]
 
@@ -13,6 +14,7 @@ height = 20.0
 script = ExtResource("1_j2kns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_ks6tm")
 texture = ExtResource("1_17ubi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
