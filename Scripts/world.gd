@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 		1:
 			pass
 		2: 
-			print(stats.screens_needed, "and", stats.screens)
 			if stats.screens >= 1 and stats.screens < 3:
 				$WindowScreen2.activate()
 				$WindowScreen3.activate()
