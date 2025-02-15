@@ -13,3 +13,11 @@ func _ready():
 func _process(delta):
 	position += velocity*delta
 	velocity = velocity*(1-delta) + get_local_mouse_position()*delta*3
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	visible = true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	visible = false

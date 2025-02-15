@@ -1,34 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5n6pfu2anprg"]
+[gd_scene load_steps=9 format=3 uid="uid://c5n6pfu2anprg"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_vq7k7"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
 [ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
-[ext_resource type="Texture2D" uid="uid://b6kshjgeg8c75" path="res://Assets/20250215_000340.jpg" id="3_ukhce"]
-
-[sub_resource type="GDScript" id="GDScript_58ab3"]
-script/source = "extends Sprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	visible = true
-
-
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	visible = false
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_whm74"]
-size = Vector2(2220.1, 2572.9)
+[ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xgc6"]
 size = Vector2(1196, 20)
@@ -50,19 +25,9 @@ offset_right = 1714.0
 offset_bottom = 836.0
 texture = ExtResource("2_eoyj7")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Mouse" parent="." instance=ExtResource("3_rr2h0")]
 visible = false
-position = Vector2(780, 457)
-scale = Vector2(0.192333, 0.14575)
-texture = ExtResource("3_ukhce")
-script = SubResource("GDScript_58ab3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(778.5, 432.5)
-scale = Vector2(0.192333, 0.14575)
-shape = SubResource("RectangleShape2D_whm74")
+position = Vector2(59, 326)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
@@ -85,7 +50,7 @@ shape = SubResource("RectangleShape2D_goqj3")
 position = Vector2(1166, 325)
 shape = SubResource("RectangleShape2D_hcwr5")
 
-[connection signal="area_entered" from="WindowScreen/Area2D" to="Area2D/Sprite2D" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen/Area2D" to="Area2D/Sprite2D" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 
 [editable path="WindowScreen"]
