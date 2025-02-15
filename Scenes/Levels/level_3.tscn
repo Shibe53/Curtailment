@@ -140,8 +140,8 @@ timer = 3.0
 offset = 0.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(584.5, 458.767)
-scale = Vector2(0.964844, 1.22474)
+position = Vector2(584.5, 498.5)
+scale = Vector2(0.964844, 1.53516)
 texture = ExtResource("7_3f1p2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
