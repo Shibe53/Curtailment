@@ -2,6 +2,10 @@ extends Node
 
 signal all_screens_charged
 
+@export var level = -1:
+	set(value):
+		level = value
+
 @export var screens_needed = 10:
 	set(value):
 		screens_needed = value

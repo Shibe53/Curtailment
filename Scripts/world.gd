@@ -9,16 +9,19 @@ func _ready() -> void:
 	match level:
 		0:
 			stats.screens_needed = 1
+			stats.level = 0
 		1:
 			stats.screens_needed = 3
+			stats.level = 1
 		2: 
 			stats.screens_needed = 8
+			stats.level = 2
 			$WindowScreen2.deactivate()
 			$WindowScreen3.deactivate()
 		3:
-			pass
+			stats.level = 3
 		4:
-			pass
+			stats.level = 4
 	stats.screens = 0
 	stats.all_screens_charged.connect(level_complete)
 
