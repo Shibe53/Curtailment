@@ -53,7 +53,4 @@ shape = SubResource("RectangleShape2D_goqj3")
 position = Vector2(1166, 325)
 shape = SubResource("RectangleShape2D_hcwr5")
 
-[connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
-
 [editable path="WindowScreen"]
