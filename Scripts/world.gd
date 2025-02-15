@@ -10,7 +10,7 @@ func _ready() -> void:
 		0:
 			stats.screens_needed = 1
 		1:
-			pass
+			stats.screens_needed = 3
 		2: 
 			stats.screens_needed = 8
 			$WindowScreen2.deactivate()
