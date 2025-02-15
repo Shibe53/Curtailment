@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5n6pfu2anprg"]
+[gd_scene load_steps=9 format=3 uid="uid://cbam8aqq8qgma"]
 
-[ext_resource type="Script" path="res://Scenes/world.gd" id="1_vq7k7"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_cfjqg"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
 [ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
@@ -18,7 +18,7 @@ size = Vector2(1193, 20)
 size = Vector2(20, 676)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_vq7k7")
+script = ExtResource("1_cfjqg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1714.0
@@ -31,6 +31,10 @@ position = Vector2(59, 326)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
+script = null
+
+[node name="Area2D" parent="WindowScreen" index="2"]
+script = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
