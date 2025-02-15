@@ -50,7 +50,7 @@ size = Vector2(1193, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcwr5"]
 size = Vector2(20, 676)
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 script = ExtResource("1_cfjqg")
 
 [node name="TextureRect" type="TextureRect" parent="."]

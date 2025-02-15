@@ -70,7 +70,6 @@ position = Vector2(6, 7)
 [node name="WindowScreen" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(412, 150)
-charge = 99
 
 [node name="ProgressBar" parent="WindowScreen" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -83,7 +82,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen2" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(992, 204)
-charge = 99
+CHARGE_RATE = 0.1
 
 [node name="ProgressBar" parent="WindowScreen2" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -96,7 +95,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen3" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(176, 475)
-charge = 99
+CHARGE_RATE = 0.1
 
 [node name="ProgressBar" parent="WindowScreen3" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -109,6 +108,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen4" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(578, 503)
+CHARGE_RATE = 0.15
 
 [node name="ProgressBar" parent="WindowScreen4" index="4"]
 metadata/_edit_use_anchors_ = true
