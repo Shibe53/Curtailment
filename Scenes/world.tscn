@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="1_xfbpp"]
 [ext_resource type="Texture2D" uid="uid://ctgarj4ppgp2p" path="res://Assets/blue.png" id="2_eoyj7"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_rr2h0"]
-[ext_resource type="PackedScene" uid="uid://cgwvaerxqm48u" path="res://Scenes/killzone.tscn" id="5_wb4kf"]
+[ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="5_wb4kf"]
 [ext_resource type="Material" uid="uid://l0mruno0riot" path="res://Assets/window_shader.tres" id="6_onq3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xgc6"]
@@ -32,6 +32,9 @@ position = Vector2(60, 337)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
+
+[node name="Area2D" parent="WindowScreen" index="4"]
+collision_layer = 2
 
 [node name="kill" parent="WindowScreen" instance=ExtResource("5_wb4kf")]
 shader_material = ExtResource("6_onq3a")
