@@ -100,6 +100,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen4" parent="." instance=ExtResource("4_83666")]
 y_sort_enabled = true
 position = Vector2(876, 254)
+CHARGE_RATE = 0.15
 
 [node name="Sprite2D" parent="WindowScreen4" index="1"]
 texture = ExtResource("8_qw714")

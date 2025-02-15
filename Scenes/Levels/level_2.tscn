@@ -72,6 +72,7 @@ position = Vector2(6, 7)
 [node name="WindowScreen" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(412, 150)
+CHARGE_RATE = 0.15
 
 [node name="ProgressBar" parent="WindowScreen" index="4"]
 metadata/_edit_use_anchors_ = true

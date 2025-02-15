@@ -56,9 +56,9 @@ script = ExtResource("1_seeb3")
 level = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -5.0
+offset_left = -3.0
 offset_top = -21.0
-offset_right = 1163.0
+offset_right = 1165.0
 offset_bottom = 1003.0
 scale = Vector2(1, 0.7)
 texture = ExtResource("2_4s2wk")
@@ -139,8 +139,14 @@ scale = Vector2(1, 2)
 timer = 3.0
 offset = 0.0
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(584.5, 458.767)
+scale = Vector2(0.964844, 1.22474)
+texture = ExtResource("7_3f1p2")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(587, 211)
+position = Vector2(584.5, 158.5)
+scale = Vector2(0.964844, 1.41016)
 texture = ExtResource("7_3f1p2")
 
 [connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
