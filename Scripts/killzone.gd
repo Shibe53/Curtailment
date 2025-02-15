@@ -1,11 +1,13 @@
 extends Area2D
 
 @export_range(2,10) var timer: float
+@export_range(0,1) var offset:float
 @onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.speed_scale = 3/timer
+	animation_player.seek(3*offset)
 	#var kill = Animation.new()
 	#kill.length = timer
 	#kill.loop_mode = 1

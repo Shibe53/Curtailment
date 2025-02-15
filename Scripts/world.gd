@@ -10,7 +10,7 @@ func _ready() -> void:
 		0:
 			stats.screens_needed = 1
 		1:
-			pass
+			stats.screens_needed = 3
 		2: 
 			pass
 		3:
@@ -22,7 +22,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	match level:
+		0:
+			pass
+		1:
+			pass
+		2: 
+			pass
+		3:
+			pass
+		4:
+			pass
 
 func level_complete():
 	await get_tree().create_timer(3).timeout

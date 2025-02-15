@@ -11,8 +11,8 @@ enum {
 
 @export_group("Starting values")
 @export_range(0,100) var charge = 0
-@export_range(0,200) var SPEED_X = 100
-@export_range(0,200) var SPEED_Y = 100
+@export_range(0,300) var SPEED_X = 100
+@export_range(0,300) var SPEED_Y = 100
 @export_range(-1,1) var ROTATION: float = 0
 @export_range(-1,1) var STRETCH_Y:float = 0
 @export_range(-1,1) var STRETCH_X:float = 0
@@ -20,10 +20,10 @@ enum {
 
 @export_group("Changing values")
 @export var CHARGE_RATE = 0.05
-@export_range(0,200) var SPEED_X_LBOUND = 100
-@export_range(0,200) var SPEED_X_UBOUND = 100
-@export_range(0,200) var SPEED_Y_LBOUND = 100
-@export_range(0,200) var SPEED_Y_UBOUND = 100
+@export_range(0,300) var SPEED_X_LBOUND = 100
+@export_range(0,300) var SPEED_X_UBOUND = 100
+@export_range(0,300) var SPEED_Y_LBOUND = 100
+@export_range(0,300) var SPEED_Y_UBOUND = 100
 @export_range(-1,1) var ROTATION_LEFTBOUND: float = 0
 @export_range(-1,1) var ROTATION_RIGHTBOUND: float = 0
 @export_range(-1,1) var STRETCH_X_LEFTBOUND:float = 0
@@ -50,11 +50,11 @@ enum {
 
 var state = MOVE
 var rng = RandomNumberGenerator.new()
-var impulse:Vector2 = Vector2(SPEED_X, SPEED_Y)
+var impulse:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	impulse = Vector2(SPEED_X, SPEED_Y)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

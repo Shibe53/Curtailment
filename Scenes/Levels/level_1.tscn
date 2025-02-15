@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://drgk83jb7k23l"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_segu6"]
+[ext_resource type="Texture2D" uid="uid://c6pyoepw3g3w0" path="res://Assets/WXP_Screen.png" id="2_5g8ci"]
+[ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_ngk3g"]
+[ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="4_7n6ou"]
+[ext_resource type="Script" path="res://Scenes/screen.gd" id="5_208qy"]
+
+[sub_resource type="Shader" id="Shader_5p1xp"]
+code = "shader_type canvas_item;
+
+uniform vec2 mask_position;  // Center of the mask in UV space
+uniform vec2 mask_size;      // Width and height of the mask in UV space
+uniform float edge_smoothness = 1.0;  // Smoothing effect
+
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV); // Get sprite texture
+
+    // Compute half extents
+    vec2 half_size = mask_size * 0.5;
+
+    // Compute distance from the mask center
+    vec2 dist = abs(UV - mask_position) - half_size;
+
+    // If inside the box, visibility is 1. Otherwise, smoothly fade out.
+    float visibility = 1.0 - smoothstep(0.0, edge_smoothness, max(dist.x, dist.y));
+
+    // Apply mask effect
+    COLOR = tex_color;
+    COLOR.a *= visibility;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ph7l"]
+shader = SubResource("Shader_5p1xp")
+shader_parameter/mask_position = null
+shader_parameter/mask_size = null
+shader_parameter/edge_smoothness = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xgc6"]
+size = Vector2(1196, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgdrr"]
+size = Vector2(21, 697)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goqj3"]
+size = Vector2(1193, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcwr5"]
+size = Vector2(20, 676)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_segu6")
+level = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -5.0
+offset_top = -21.0
+offset_right = 1163.0
+offset_bottom = 1003.0
+scale = Vector2(1, 0.7)
+texture = ExtResource("2_5g8ci")
+
+[node name="Mouse" parent="." instance=ExtResource("3_ngk3g")]
+z_index = 23
+y_sort_enabled = false
+position = Vector2(585, 330)
+
+[node name="WindowScreen" parent="." instance=ExtResource("4_7n6ou")]
+y_sort_enabled = true
+position = Vector2(585, 331)
+SPEED_X = 300
+SPEED_Y = 0
+STRETCH_Y = -1.0
+STRETCH_X = -1.0
+CHARGE_RATE = 0.1
+SPEED_X_LBOUND = 250
+SPEED_X_UBOUND = 300
+SPEED_Y_LBOUND = 250
+SPEED_Y_UBOUND = 300
+ROTATION_LEFTBOUND = -1.0
+STRETCH_X_LEFTBOUND = -1.0
+STRETCH_X_RIGHTBOUND = 1.0
+STRETCH_Y_LEFTBOUND = -1.0
+STRETCH_Y_RIGHTBOUND = 1.0
+
+[node name="Area2D" parent="WindowScreen" index="5"]
+collision_layer = 2
+script = ExtResource("5_208qy")
+shader_material = SubResource("ShaderMaterial_0ph7l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(583, -12)
+shape = SubResource("RectangleShape2D_2xgc6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10.5, 331.5)
+shape = SubResource("RectangleShape2D_dgdrr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582.5, 659)
+shape = SubResource("RectangleShape2D_goqj3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1166, 325)
+shape = SubResource("RectangleShape2D_hcwr5")
+
+[connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
+
+[editable path="WindowScreen"]
