@@ -47,7 +47,7 @@ enum {
 @onready var animation_player = $AnimationPlayer
 @onready var progress_bar = $ProgressBar
 
-
+var done = false
 var state = MOVE
 var rng = RandomNumberGenerator.new()
 var impulse:Vector2 = Vector2(SPEED_X, SPEED_Y)
@@ -89,6 +89,23 @@ func charging():
 		progress_bar.value = charge
 	else:
 		state = COMPLETE
-		stats.screens += 1
-		$AudioStreamPlayer2D.stream = Charged
-		$AudioStreamPlayer2D.play()
+		if !done:
+			done = true
+			stats.screens += 1
+			$AudioStreamPlayer2D.stream = Charged
+			$AudioStreamPlayer2D.play()
+
+func deactivate():
+	hide()  # Hide the node initially
+	set_process(false)  # Disable `_process()`
+	set_physics_process(false)  # Disable `_physics_process()`
+	$Area2D.monitoring = false
+	$Area2D.monitorable = false
+
+func activate():
+	await get_tree().create_timer(3).timeout
+	show()  # Make visible
+	set_process(true)  # Enable `_process()`
+	set_physics_process(true)  # Enable `_physics_process()`
+	$Area2D.monitoring = true
+	$Area2D.monitorable = true
