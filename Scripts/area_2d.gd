@@ -8,7 +8,7 @@ func _ready():
 
 func _process(delta):
 	var rat = get_node_or_null("../../Mouse/Sprite2D")
-	if shader_material:
+	if shader_material and rat:
 		var mask_pos = global_position
 		var sprite_pos = rat.global_position
 
