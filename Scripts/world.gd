@@ -31,6 +31,7 @@ func _ready() -> void:
 			screen3.deactivate()
 			screen4.deactivate()
 		3:
+			stats.screens_needed = 2
 			stats.level = 3
 		4:
 			stats.screens_needed = 8
