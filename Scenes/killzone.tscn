@@ -6,8 +6,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dmq2"]
 size = Vector2(246, 240)
 
+[sub_resource type="Animation" id="Animation_bp771"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_xiehd"]
-resource_name = "kill"
+resource_name = "kill_prim"
 length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
@@ -18,7 +33,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.6, 2.7),
-"transitions": PackedFloat32Array(0.00680118, 2.07053, 1),
+"transitions": PackedFloat32Array(0.00680118, 2.07053, 0.615572),
 "update": 0,
 "values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 0.662745)]
 }
@@ -33,33 +48,19 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"kill"
+"method": &"kill_player"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_bp771"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0.662745)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nbty4"]
 _data = {
 "RESET": SubResource("Animation_bp771"),
-"kill": SubResource("Animation_xiehd")
+"kill_prim": SubResource("Animation_xiehd")
 }
 
 [node name="kill" type="Area2D"]
 script = ExtResource("1_16vtt")
+timer = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5dmq2")
@@ -68,10 +69,10 @@ shape = SubResource("RectangleShape2D_5dmq2")
 libraries = {
 "": SubResource("AnimationLibrary_nbty4")
 }
-autoplay = "kill"
+autoplay = "kill_prim"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 0.662745)
+modulate = Color(1, 0, 0, 0)
 position = Vector2(-1.62125e-05, 5.72205e-06)
 scale = Vector2(0.82, 1.42857)
 texture = ExtResource("2_88xh5")
