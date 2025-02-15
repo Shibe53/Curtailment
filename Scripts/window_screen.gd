@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const Charged = preload("res://Assets/charged.wav")
+
 var stats = PlayerStats
 
 enum {
@@ -88,3 +90,5 @@ func charging():
 	else:
 		state = COMPLETE
 		stats.screens += 1
+		$AudioStreamPlayer2D.stream = Charged
+		$AudioStreamPlayer2D.play()
