@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgvtdobml44ae"]
+[gd_scene load_steps=13 format=3 uid="uid://dgvtdobml44ae"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jayn1"]
 [ext_resource type="Texture2D" uid="uid://c6pyoepw3g3w0" path="res://Assets/WXP_Screen.png" id="2_w2kh2"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_6nci1"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="4_h08a6"]
 [ext_resource type="Script" path="res://Scenes/screen.gd" id="5_sydi3"]
+[ext_resource type="PackedScene" uid="uid://bh2tmfn5cyb1y" path="res://Scenes/invisible_area.tscn" id="6_vh6yd"]
 
 [sub_resource type="Shader" id="Shader_5p1xp"]
 code = "shader_type canvas_item;
@@ -62,7 +63,7 @@ scale = Vector2(1, 0.7)
 texture = ExtResource("2_w2kh2")
 
 [node name="Mouse" parent="." instance=ExtResource("3_6nci1")]
-z_index = 23
+z_index = 18
 y_sort_enabled = false
 position = Vector2(6, 7)
 
@@ -82,6 +83,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen2" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(992, 204)
+charge = 99
 
 [node name="ProgressBar" parent="WindowScreen2" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -94,6 +96,7 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen3" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(176, 475)
+charge = 99
 
 [node name="ProgressBar" parent="WindowScreen3" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -102,6 +105,20 @@ metadata/_edit_use_anchors_ = true
 collision_layer = 2
 script = ExtResource("5_sydi3")
 shader_material = SubResource("ShaderMaterial_0ph7l")
+
+[node name="WindowScreen4" parent="." instance=ExtResource("4_h08a6")]
+y_sort_enabled = true
+position = Vector2(578, 503)
+
+[node name="ProgressBar" parent="WindowScreen4" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" parent="WindowScreen4" index="5"]
+collision_layer = 2
+script = ExtResource("5_sydi3")
+shader_material = SubResource("ShaderMaterial_0ph7l")
+
+[node name="invis" parent="WindowScreen4" instance=ExtResource("6_vh6yd")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -129,7 +146,10 @@ shape = SubResource("RectangleShape2D_hcwr5")
 [connection signal="area_exited" from="WindowScreen2/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="WindowScreen3/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="WindowScreen3/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="WindowScreen4/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="WindowScreen4/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 
 [editable path="WindowScreen"]
 [editable path="WindowScreen2"]
 [editable path="WindowScreen3"]
+[editable path="WindowScreen4"]

@@ -7,6 +7,7 @@
 size = Vector2(246, 240)
 
 [node name="invis" type="Area2D"]
+z_index = 20
 script = ExtResource("1_vxmeg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -20,6 +21,7 @@ texture = ExtResource("2_h6tix")
 
 [node name="Node2D" type="Node2D" parent="."]
 top_level = true
+z_index = 25
 
 [node name="Label" type="Label" parent="Node2D"]
 offset_left = -68.0
