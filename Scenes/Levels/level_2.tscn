@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgvtdobml44ae"]
+[gd_scene load_steps=15 format=3 uid="uid://dgvtdobml44ae"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jayn1"]
 [ext_resource type="Texture2D" uid="uid://c6pyoepw3g3w0" path="res://Assets/WXP_Screen.png" id="2_w2kh2"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_6nci1"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="4_h08a6"]
 [ext_resource type="Script" path="res://Scenes/screen.gd" id="5_sydi3"]
+[ext_resource type="Texture2D" uid="uid://cuv453xv1vn5h" path="res://Assets/Screen2.png" id="6_074wc"]
 [ext_resource type="PackedScene" uid="uid://bh2tmfn5cyb1y" path="res://Scenes/invisible_area.tscn" id="6_vh6yd"]
+[ext_resource type="Texture2D" uid="uid://cqoecje56e0vu" path="res://Assets/Screen3.png" id="7_yjg43"]
 
 [sub_resource type="Shader" id="Shader_5p1xp"]
 code = "shader_type canvas_item;
@@ -95,7 +97,13 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 [node name="WindowScreen3" parent="." instance=ExtResource("4_h08a6")]
 y_sort_enabled = true
 position = Vector2(176, 475)
-CHARGE_RATE = 0.1
+SPEED_X = 150
+SPEED_Y = 150
+ROTATION = 0.5
+CHARGE_RATE = 0.15
+
+[node name="Sprite2D" parent="WindowScreen3" index="1"]
+texture = ExtResource("6_074wc")
 
 [node name="ProgressBar" parent="WindowScreen3" index="4"]
 metadata/_edit_use_anchors_ = true
@@ -109,6 +117,9 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 y_sort_enabled = true
 position = Vector2(578, 503)
 CHARGE_RATE = 0.15
+
+[node name="Sprite2D" parent="WindowScreen4" index="1"]
+texture = ExtResource("7_yjg43")
 
 [node name="ProgressBar" parent="WindowScreen4" index="4"]
 metadata/_edit_use_anchors_ = true

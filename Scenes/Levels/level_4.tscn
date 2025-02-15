@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://58xnf7u2r7g1"]
+[gd_scene load_steps=16 format=3 uid="uid://58xnf7u2r7g1"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_yyyn8"]
 [ext_resource type="Texture2D" uid="uid://c6pyoepw3g3w0" path="res://Assets/WXP_Screen.png" id="2_33fyt"]
 [ext_resource type="PackedScene" uid="uid://c0e54g3dw4d25" path="res://Scenes/mouse.tscn" id="3_20vdo"]
 [ext_resource type="PackedScene" uid="uid://bng0i3cdu3nb6" path="res://Scenes/window_screen.tscn" id="4_83666"]
 [ext_resource type="Script" path="res://Scenes/screen.gd" id="5_7743r"]
+[ext_resource type="Texture2D" uid="uid://cqoecje56e0vu" path="res://Assets/Screen3.png" id="6_5t13m"]
 [ext_resource type="PackedScene" uid="uid://cgwvaerxqm48u" path="res://Scenes/killzone.tscn" id="6_tm5a1"]
 [ext_resource type="PackedScene" uid="uid://bh2tmfn5cyb1y" path="res://Scenes/invisible_area.tscn" id="6_y3w20"]
+[ext_resource type="Texture2D" uid="uid://cuv453xv1vn5h" path="res://Assets/Screen2.png" id="8_qw714"]
 
 [sub_resource type="Shader" id="Shader_5p1xp"]
 code = "shader_type canvas_item;
@@ -68,21 +70,9 @@ z_index = 23
 y_sort_enabled = false
 position = Vector2(6, 7)
 
-[node name="WindowScreen" parent="." instance=ExtResource("4_83666")]
-y_sort_enabled = true
-position = Vector2(1007, 161)
-SPEED_X = 50
-ROTATION = 0.3
-CHARGE_RATE = 0.1
-
-[node name="Area2D" parent="WindowScreen" index="5"]
-collision_layer = 2
-script = ExtResource("5_7743r")
-shader_material = SubResource("ShaderMaterial_0ph7l")
-
 [node name="WindowScreen2" parent="." instance=ExtResource("4_83666")]
 y_sort_enabled = true
-position = Vector2(721, 463)
+position = Vector2(286, 487)
 SPEED_Y = 50
 ROTATION = 0.4
 CHARGE_RATE = 0.1
@@ -95,7 +85,10 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 
 [node name="WindowScreen3" parent="." instance=ExtResource("4_83666")]
 y_sort_enabled = true
-position = Vector2(436, 448)
+position = Vector2(190, 154)
+
+[node name="Sprite2D" parent="WindowScreen3" index="1"]
+texture = ExtResource("6_5t13m")
 
 [node name="Area2D" parent="WindowScreen3" index="5"]
 collision_layer = 2
@@ -106,55 +99,17 @@ shader_material = SubResource("ShaderMaterial_0ph7l")
 
 [node name="WindowScreen4" parent="." instance=ExtResource("4_83666")]
 y_sort_enabled = true
-position = Vector2(199, 151)
+position = Vector2(876, 254)
+
+[node name="Sprite2D" parent="WindowScreen4" index="1"]
+texture = ExtResource("8_qw714")
 
 [node name="Area2D" parent="WindowScreen4" index="5"]
 collision_layer = 2
 script = ExtResource("5_7743r")
 shader_material = SubResource("ShaderMaterial_0ph7l")
 
-[node name="WindowScreen5" parent="." instance=ExtResource("4_83666")]
-y_sort_enabled = true
-position = Vector2(740, 156)
-
-[node name="Area2D" parent="WindowScreen5" index="5"]
-collision_layer = 2
-script = ExtResource("5_7743r")
-shader_material = SubResource("ShaderMaterial_0ph7l")
-
-[node name="invis" parent="WindowScreen5" instance=ExtResource("6_y3w20")]
-
-[node name="WindowScreen6" parent="." instance=ExtResource("4_83666")]
-y_sort_enabled = true
-position = Vector2(150, 459)
-
-[node name="Area2D" parent="WindowScreen6" index="5"]
-collision_layer = 2
-script = ExtResource("5_7743r")
-shader_material = SubResource("ShaderMaterial_0ph7l")
-
-[node name="WindowScreen7" parent="." instance=ExtResource("4_83666")]
-y_sort_enabled = true
-position = Vector2(469, 157)
-
-[node name="Area2D" parent="WindowScreen7" index="5"]
-collision_layer = 2
-script = ExtResource("5_7743r")
-shader_material = SubResource("ShaderMaterial_0ph7l")
-
-[node name="invis" parent="WindowScreen7" instance=ExtResource("6_y3w20")]
-position = Vector2(-319, 302)
-
-[node name="WindowScreen8" parent="." instance=ExtResource("4_83666")]
-y_sort_enabled = true
-position = Vector2(989, 467)
-
-[node name="Area2D" parent="WindowScreen8" index="5"]
-collision_layer = 2
-script = ExtResource("5_7743r")
-shader_material = SubResource("ShaderMaterial_0ph7l")
-
-[node name="kill" parent="WindowScreen8" instance=ExtResource("6_tm5a1")]
+[node name="kill" parent="WindowScreen4" instance=ExtResource("6_tm5a1")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -176,28 +131,13 @@ shape = SubResource("RectangleShape2D_goqj3")
 position = Vector2(1166, 325)
 shape = SubResource("RectangleShape2D_hcwr5")
 
-[connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="WindowScreen2/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="WindowScreen2/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="WindowScreen3/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="WindowScreen3/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="WindowScreen4/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="WindowScreen4/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="WindowScreen5/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen5/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="WindowScreen6/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen6/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="WindowScreen7/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen7/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
-[connection signal="area_entered" from="WindowScreen8/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="WindowScreen8/Area2D" to="Mouse" method="_on_area_2d_area_exited"]
 
-[editable path="WindowScreen"]
 [editable path="WindowScreen2"]
 [editable path="WindowScreen3"]
 [editable path="WindowScreen4"]
-[editable path="WindowScreen5"]
-[editable path="WindowScreen6"]
-[editable path="WindowScreen7"]
-[editable path="WindowScreen8"]

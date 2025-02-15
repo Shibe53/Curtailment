@@ -70,14 +70,11 @@ y_sort_enabled = true
 position = Vector2(576, 301)
 SPEED_X = 0
 SPEED_Y = 0
-ROTATION = 0.0
 CHARGE_RATE = 0.1
 SPEED_X_LBOUND = 0
 SPEED_X_UBOUND = 0
 SPEED_Y_LBOUND = 0
 SPEED_Y_UBOUND = 0
-ROTATION_LEFTBOUND = 0.0
-ROTATION_RIGHTBOUND = 0.0
 
 [node name="ProgressBar" parent="WindowScreen" index="4"]
 metadata/_edit_use_anchors_ = true

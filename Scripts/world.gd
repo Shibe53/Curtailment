@@ -36,18 +36,9 @@ func _ready() -> void:
 		4:
 			stats.screens_needed = 8
 			stats.level = 4
+			screen2 = $WindowScreen2
 			screen3 = $WindowScreen3
 			screen4 = $WindowScreen4
-			screen5 = $WindowScreen5
-			screen6 = $WindowScreen6
-			screen7 = $WindowScreen7
-			screen8 = $WindowScreen8
-			screen3.deactivate()
-			screen4.deactivate()
-			screen5.deactivate()
-			screen6.deactivate()
-			screen7.deactivate()
-			screen8.deactivate()
 	stats.screens = 0
 	stats.all_screens_charged.connect(level_complete)
 
@@ -70,21 +61,7 @@ func _process(delta: float) -> void:
 		3:
 			pass
 		4:
-			if stats.screens >= 2 and stats.screens < 4:
-				if screen3 != null:
-					screen3.activate()
-				if screen4 != null:
-					screen4.activate()
-			if stats.screens >= 4 and stats.screens < 6:
-				if screen5 != null:
-					screen5.activate()
-				if screen6 != null:
-					screen6.activate()
-			if stats.screens >= 6:
-				if screen7 != null:
-					screen7.activate()
-				if screen8 != null:
-					screen8.activate()
+			pass
 
 func level_complete():
 	await get_tree().create_timer(3).timeout
