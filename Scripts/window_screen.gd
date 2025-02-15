@@ -16,6 +16,7 @@ enum {
 # gravity
 
 @onready var animation_player = $AnimationPlayer
+@onready var progress_bar = $ProgressBar
 
 
 var state = MOVE
@@ -62,5 +63,6 @@ func move_state(delta):
 func charging():
 	if charge < 100:
 		charge += 0.05
+		progress_bar.value = charge
 	else:
 		state = COMPLETE 
