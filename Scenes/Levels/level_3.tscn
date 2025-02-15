@@ -145,8 +145,8 @@ scale = Vector2(0.964844, 1.53516)
 texture = ExtResource("7_3f1p2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(584.5, 158.5)
-scale = Vector2(0.964844, 1.41016)
+position = Vector2(584.5, 198.5)
+scale = Vector2(0.964844, 1.72266)
 texture = ExtResource("7_3f1p2")
 
 [connection signal="area_entered" from="WindowScreen/Area2D" to="Mouse" method="_on_area_2d_area_entered"]
