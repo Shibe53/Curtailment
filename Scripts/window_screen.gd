@@ -8,7 +8,6 @@ enum {
 @export var SPEED = 100
 @export var charge = 0
 
-
 @export var ROTATION = 0
 @export var STRETCH_Y = 0
 @export var STRETCH_X = 0
@@ -16,6 +15,7 @@ enum {
 # curved movement
 # gravity
 
+@onready var animation_player = $AnimationPlayer
 
 
 var state = MOVE
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			move_state(delta)
 		
 		COMPLETE:
-			pass
+			animation_player.play("meesa_disappearin")
 
 func move_state(delta):
 	if get_last_slide_collision():
