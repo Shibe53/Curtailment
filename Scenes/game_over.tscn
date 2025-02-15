@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm01tbgshn0yw"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_vhdap"]
+[ext_resource type="Texture2D" uid="uid://8hesgvtajy1r" path="res://Assets/game_over_screen.png" id="2_khx8c"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhdap")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2160.0
+offset_bottom = 1620.0
+scale = Vector2(0.53, 0.4)
+texture = ExtResource("2_khx8c")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 374.0
+offset_top = 513.0
+offset_right = 762.0
+offset_bottom = 589.0
+text = "Restart your mischief"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

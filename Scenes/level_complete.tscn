@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://i5s046m3efol"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_rvsri"]
+[ext_resource type="Texture2D" uid="uid://jt0l26e4dlup" path="res://Assets/level_complete_screen.png" id="2_3e33l"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rvsri")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2160.0
+offset_bottom = 1620.0
+scale = Vector2(0.53, 0.4)
+texture = ExtResource("2_3e33l")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 375.0
+offset_top = 479.0
+offset_right = 763.0
+offset_bottom = 555.0
+text = "Continue your mischief"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

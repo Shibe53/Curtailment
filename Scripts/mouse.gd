@@ -34,6 +34,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 	print("Game Over L")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
