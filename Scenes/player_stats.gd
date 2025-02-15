@@ -2,7 +2,7 @@ extends Node
 
 signal all_screens_charged
 
-@export var level = -1:
+@export var level = 0:
 	set(value):
 		level = value
 
