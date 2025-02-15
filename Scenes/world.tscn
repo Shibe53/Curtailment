@@ -26,15 +26,10 @@ offset_bottom = 836.0
 texture = ExtResource("2_eoyj7")
 
 [node name="Mouse" parent="." instance=ExtResource("3_rr2h0")]
-visible = false
 position = Vector2(59, 326)
 
 [node name="WindowScreen" parent="." instance=ExtResource("1_xfbpp")]
 position = Vector2(150, 151)
-script = null
-
-[node name="Area2D" parent="WindowScreen" index="2"]
-script = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
